@@ -9,19 +9,33 @@
   </body>
 </html>
  -->
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>My Static HTML Page</title>
-	<style>
+		<style>
 		header {
-			background-image: url('header-image.jpg');
-			background-repeat: no-repeat;
-			background-position: center;
-			height: 200px;
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
 		}
-
+		
+		.links {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-grow: 1;
+		}
+		
+		.links a {
+			color: #fff;
+			text-decoration: none;
+			padding: 10px;
+		}
+		
 		main {
 			display: flex;
 			flex-direction: column;
@@ -33,19 +47,45 @@
 		footer {
 			background-color: #333;
 			color: #fff;
-			padding: 20px;
+			padding: 5px;
 			text-align: center;
 		}
 	</style>
 </head>
 <body>
-	<header></header>
+	
+	<header>
+		<div class="links">
+			<a href="index.html">Home</a>
+			<a href="problem.html">Problem Statement</a>
+			<a href="approach.html">Approach</a>
+			<a href="evaluation.html">Evaluation</a>
+			<a href="conclusion.html">Conclusion</a>
+		</div>
+	</header>
 	<main>
-		<h1>Welcome to my static HTML page!</h1>
-		<p>This is some centered content on the page.</p>
+		<img src="problem.jpg" style="width:100%; height:400px" alt="My Image">
 	</main>
+		<div class="content">
+			<h2>Conclusions:</h2>
+<ul>
+  <li>The recommendation system using item-item collaborative filtering and popularity-based approaches, along with GNN for similar item recommendations, has shown promising results in improving the accuracy and relevance of product recommendations.</li>
+  <li>The precision and recall scores obtained through evaluations indicate that the system is able to effectively recommend relevant products to the users.</li>
+  <li>The implementation of GNN has shown potential in improving the accuracy and relevance of similar item recommendations.</li>
+</ul>
+<h2>Future Work:</h2>
+<ul>
+  <li>Integration of additional recommendation techniques, such as content-based filtering, to improve the overall accuracy and relevance of recommendations.</li>
+  <li>Exploring different graph neural network architectures and techniques to improve the accuracy and relevance of similar item recommendations.</li>
+  <li>Incorporating user feedback and preferences to personalize the recommendations for individual users.</li>
+  <li>Scaling up the recommendation system to handle larger datasets and user traffic.</li>
+  <li>Conducting more extensive evaluations and comparing the performance of the system with other state-of-the-art recommendation systems.</li>
+</ul>
+		</div>
+
 	<footer>
-		<p>Copyright &copy; 2023 My Company</p>
+		<p>That is it about Product Rec :)</p>
 	</footer>
+
 </body>
 </html>
