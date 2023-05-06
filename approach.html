@@ -96,6 +96,28 @@
 		</ul>
 	</p>
 	<p>These rules correspond to the case when c is the query product and the recommended product respectively. Observe that mitigating selection bias and tackling cold-start products deal with modelling transitive relationships, while preserving edge asymmetry.</p>
+	<h1> Product Graph construction </h1>
+	<p>We had leveraged the co-purchase data CP and co-view data CV to create the product graph G. We represent each product by an input feature based on its metadata from catalog (product name, product description, product type etc.). In order to jointly model product co-purchase likelihood and product asymmetry, we represent each product using dual i.e. source and target embeddings. We train our model using an asymmetric loss function. The trained model generates product embeddings by appropriately aggregating features from its neighborhood in G. For every node u in G, we generate a pair of embeddings (denoted by u-s and u-t). In order to address node asymmetry, we use the following rationale: 
+	<ul>
+		<li>while generating the source embedding of a node, we aggregate information from the target embedding of its out-neighbors</li>
+		<li>while generating the target embedding of a node, we aggregate information from the source embedding of its in-neighbors. </li>
+	</ul>
+	Compared to undirected graphs, the computational graph corresponding to the source and target embedding of each node is different in directed graphs. Consequently, this trick enables us to model edge strength and edge direction efficiently in directed graphs. Given a query product q, we generate its source embedding and perform a nearest neighbor lookup in the target embedding space to recommend top-k related products for q. </p>
+	
+	<p>We had generated the product embeddings assuming that model is already trained. The first step involves describing the forward pass of the model, which generates the product embeddings. Once the embeddings are generated, the next step is to learn the model parameters using stochastic gradient descent and backpropagation techniques.</p>
+	
+	<h1>Related product recommendation</h1>
+	<p>Given a query product q, we use θ<sub>q</sub><sup>s</sup>, the source embedding of q, to perform a nearest neighbor lookup in the target embedding space of all the products to recommend top-k set of related products denoted by R<sub>k</sub><sup>q</sup>. Specifically, for a query product q &isin; P, we compute a relevance score with respect to a candidate product v &isin; P as shown below
+	
+		\[rel(q,v) = (\theta_q^s)^T \times \theta_v^t\]
+	
+	Observe that rel(q, v) is not equal to rel(v, q) which helps capturing product asymmetry
+	</p>
+	
+	<h1>Implementation Details</h1>
+	<p>
+	We have implemented it using PyTorch. We vary the learning rate in {10<sup>-1</sup> , 10<sup>-2</sup> , 10<sup>-3</sup> , 10<sup>-4</sup>} and observed 10<sup>-4</sup> using Adam’s optimizer to work the best. We use L = 3 layer GNN model for this application. Our data set had approximately 1000 nodes. After generating the product embeddings, we perform nearest neighbor lookup to suggest top-k related products for k values in {5, 10, 20}. For all models, we learn 64 dimensional product embeddings trained for a maximum of 30 epochs. We repeat all the experiments 10 times and report the average value across the runs
+	</p>
 	</div>
 	
 	<footer>
