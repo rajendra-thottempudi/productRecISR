@@ -62,23 +62,12 @@
 		</div>
 	</header>
 	<main>
-		<div>
-	<h1>Motivation</h1>
-	<p>The motivation behind building a recommendation system on Graph Neural Networks (GNNs) for the e-commerce space is the potential to improve the accuracy and efficiency of product recommendations. GNNs are able to capture complex relationships between users and items in a graph structure, which can provide more meaningful and personalized recommendations compared to traditional collaborative filtering methods. Additionally, GNN-based recommendation systems have the ability to handle large-scale and dynamic data, making them suitable for the constantly evolving e-commerce landscape. Overall, the use of GNNs in recommendation systems has the potential to enhance the shopping experience for users and increase sales for e-commerce businesses.</p>
-    <h1>Problem</h1>
-    <p> We deal with the problem of recommending related products i.e., given a query product, we would like to suggest top-k products that have high likelihood to be bought together with it.</p>
-	<h1>Challenges</h1>
-    <p>
-		<ul>
-			<li><p>Our problem implicitly assumes asymmetry i.e., for a phone, we would like to recommend a suitable phone case, but for a phone case, it may not be apt to recommend a phone because customers typically would purchase a phone case only while owning a phone</p></li>
-			<li><p>We also do not limit ourselves to complementary or substitute product recommendation. For example, for a specific night wear t-shirt, we can suggest similar t-shirts as well as track pants. So, the notion of relatedness is subjective to the query product and dependent on customer preferences.</p></li>
-			<li><p> Further, various factors such as product price, availability lead to presence of selection bias in the historical purchase data, that needs to be controlled for while training related product recommendations model</p></li>
-			<li>All these challenges are orthogonal to each other deeming our problem nontrivial</li>
-		</ul>
-	</p>
-	<h1>Solution</h1>
-	<p>We had developed, a novel Graph Neural Network (GNN) based framework for related product recommendation, wherein the problem is formulated as a node recommendation task on a directed product graph. In order to capture product asymmetry, we employ an asymmetric loss function and learn dual embeddings for each product, by appropriately aggregating features from its neighborhood</p>
-	</div>
+		<div class="content">
+			<h2> Motivation </h2>
+			<p> The motivation behind building a recommendation system on Graph Neural Networks (GNNs) for the e-commerce space is the potential to improve the accuracy and efficiency of product recommendations. GNNs are able to capture complex relationships between users and items in a graph structure, which can provide more meaningful and personalized recommendations compared to traditional collaborative filtering methods. Additionally, GNN-based recommendation systems have the ability to handle large-scale and dynamic data, making them suitable for the constantly evolving e-commerce landscape. Overall, the use of GNNs in recommendation systems has the potential to enhance the shopping experience for users and increase sales for e-commerce businesses.
+			</p>
+		
+		</div>
 	</main>
 	<footer>
 		<p>That is it about Product Rec :)</p>
