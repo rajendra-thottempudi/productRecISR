@@ -9,19 +9,33 @@
   </body>
 </html>
  -->
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Static HTML Page</title>
+	<title>My Website</title>
 	<style>
 		header {
-			background-image: url('header-image.jpg');
-			background-repeat: no-repeat;
-			background-position: center;
-			height: 200px;
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
 		}
-
+		
+		.links {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-grow: 1;
+		}
+		
+		.links a {
+			color: #fff;
+			text-decoration: none;
+			padding: 10px;
+		}
+		
 		main {
 			display: flex;
 			flex-direction: column;
@@ -29,23 +43,62 @@
 			justify-content: center;
 			height: 500px;
 		}
+		
+		.container {
+			text-align: center;
+		}
 
 		footer {
 			background-color: #333;
 			color: #fff;
-			padding: 20px;
+			padding: 5px;
 			text-align: center;
 		}
 	</style>
 </head>
 <body>
-	<header></header>
+	<header>
+		<div class="links">
+			<a href="problem.html">Problem Statement</a>
+			<a href="approach.html">Approach</a>
+			<a href="evaluation.html">Evaluation</a>
+			<a href="conclusion.html">Conclusion</a>
+		</div>
+	</header>
+	
 	<main>
-		<h1>Welcome to my static HTML page!</h1>
-		<p>This is some centered content on the page.</p>
+		<img src="ecommerce.jpg" style="width:100%; height:400px" alt="My Image">
+		<h1>ProductRec</h1>
+		<p>This is the main content of the page.</p>
 	</main>
+	
+	<div class="content">
+	<h1>Approach</h1>
+    <p>Let R<sub>cp</sub>, R<sub>cv</sub> and R<sub>like</sub> be binary relationships where, aR<sub>cp</sub>b represents that a is co-purchased with b, aR<sub>cv</sub>b represents that a is coviewed with b, and aR<sub>like</sub>b represents that a is similar to b based on its product features.</p>
+	
+	<div class="container">
+		<img src="isr.png" alt="Description of image">
+	</div>
+	
+	<p>Consider a sample product graph in Figure 1, where a node corresponds to a product and an edge corresponds to a co-purchase or co-view relationship between the products.RPR problem entails few challenges which we illustrate using Figure 1 as follows:
+		<ul>
+			<li>product relevance: Given a query product P, we would like to suggest related products such as an adapter AC, phone case PC, AirPods AP, screen guard SC</li>
+			<li>product asymmetry: For a phone P, we would like to recommend a suitable phone case PC, but for a phone case PC, it may not be apt to recommend a phone P because customers typically would purchase a phone case only while owning a phone. Formally, product asymmetry can be represented as \[aR_{cp}b \not \Rightarrow bR_{cp}a\]</li>
+			<li>selection bias: It is inherent to historical purchase data due to several factors like product availability, price etc. For example, while shopping for a phone case for phone P, customer c<sub>1</sub> might browse phone cases PC and PC1 (PC2 and PC3 are not shown to him owing to some of the factors mentioned above). Another customer c<sub>2</sub> might browse phone cases PC and PC2 (PC1 and PC3 are not presented to him). A third customer c<sub>3</sub> might browse phone cases PC and PC3 (PC1 and PC2 are not presented to him). Assume that all three customers eventually purchase PC; this could also be due to a bias in the list of products shown to each customer. In our example, across different customers, PC, PC1, PC2 and PC3 are co-viewed (similar). In order to correct for selection bias, we would like to recommend not only phone case PC, but also PC1, PC2 and PC3 as related products given a query product P. Formally, we want to uncover relationships of the form:
+					\[aR_{cp}b \land bR_{cv}c \Rightarrow aR_{cp}c\]
+					\[aR_{cv}b \land bR_{cp}c \Rightarrow aR_{cp}c\]
+			</li>
+			<li>cold-start product recommendations: We not only need to suggest recommendations for existing products, but also suggest recommendations for newly launched i.e. coldstart products. Formally, given two existing products a and b, and a cold-start product c, we want to uncover relationships of the form:
+					\[cR_{like}a \land aR_{cp}b \Rightarrow cR_{cp}b\]
+					\[aR_{cp}b \land bR_{like}c \Rightarrow aR_{cp}c\]
+			</li>
+		</ul>
+	</p>
+	<p>These rules correspond to the case when c is the query product and the recommended product respectively. Observe that mitigating selection bias and tackling cold-start products deal with modelling transitive relationships, while preserving edge asymmetry.</p>
+	</div>
+	
 	<footer>
-		<p>Copyright &copy; 2023 My Company</p>
+		<p> That is it about Product Rec :) </p>
 	</footer>
 </body>
 </html>
