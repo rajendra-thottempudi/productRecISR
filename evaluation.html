@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Static HTML Page</title>
+	<title>Evaluation Page</title>
 	<style>
 		header {
 			background-image: url('header-image.jpg');
@@ -41,11 +41,51 @@
 <body>
 	<header></header>
 	<main>
-		<h1>Welcome to my static HTML page!</h1>
-		<p>This is some centered content on the page.</p>
+<body>
+    <h1>ProductRec Evaluation</h1>
+    <p>As part of our project, we built an e-commerce recommendation system using:
+        <ul>
+            <li>
+                Graph Neural Networks for recommending products similar to User's Purchase Histroy in user's dashboard
+            </li>
+            <li>
+                <p>Item-Item collaborative filtering and popularity-based approaches for displaying relevant recommendtions in search results</p>
+            </li>
+        </ul>
+        <p>In order to evaluate the performance of our system, we used the following metrics:</p>
+        <ul>
+            <li>Precision@k: Proportion of recommended items that are relevant to the user among the top K recommendations.</li>
+            <li>Recall@k: Proportion of relevant items that are recommended to the user among the top K recommendations. </li>
+            <li>F1 Score: Harmonic mean of precision@k and recall@k, balancing the trade-off between precision and recall.</li>
+        </ul>
+        <p>We split our dataset into training and testing sets, with a 80/20 ratio. We then trained our model on the training set and tested it on the testing set. The following are the evaluation results we obtained:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Precision@10</td>
+                    <td>0.82</td>
+                </tr>
+                <tr>
+                    <td>Recall@10</td>
+                    <td>0.74</td>
+                </tr>
+                <tr>
+                    <td>F1 Score</td>
+                    <td>0.77</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Overall, our e-commerce recommendation system performed well with high precision and recall values, indicating that our system is effective in recommending relevant items to users. However, there is still room for improvement, particularly in terms of Recall and F1 Scores. We plan to further optimize our system in future work.</p>
+</body>
 	</main>
 	<footer>
-		<p>Copyright &copy; 2023 My Company</p>
+		<p>Copyright &copy; Texas A&M University</p>
 	</footer>
 </body>
 </html>
