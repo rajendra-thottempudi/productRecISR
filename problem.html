@@ -15,12 +15,27 @@
 	<title>My Static HTML Page</title>
 	<style>
 		header {
-			background-image: url('header-image.jpg');
-			background-repeat: no-repeat;
-			background-position: center;
-			height: 200px;
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
 		}
-
+		
+		.links {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-grow: 1;
+		}
+		
+		.links a {
+			color: #fff;
+			text-decoration: none;
+			padding: 10px;
+		}
+		
 		main {
 			display: flex;
 			flex-direction: column;
@@ -32,7 +47,7 @@
 		footer {
 			background-color: #333;
 			color: #fff;
-			padding: 20px;
+			padding: 5px;
 			text-align: center;
 		}
 	</style>
@@ -57,7 +72,7 @@
 	<p>We had developed, a novel Graph Neural Network (GNN) based framework for related product recommendation, wherein the problem is formulated as a node recommendation task on a directed product graph. In order to capture product asymmetry, we employ an asymmetric loss function and learn dual embeddings for each product, by appropriately aggregating features from its neighborhood</p>
 	</main>
 	<footer>
-		<p>Copyright &copy; 2023 My Company</p>
+		<p>That is it about Product Rec :)</p>
 	</footer>
 </body>
 </html>
