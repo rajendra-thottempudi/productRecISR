@@ -87,59 +87,53 @@
 <head>
 	<title>My Website</title>
 	<style>
-		/* Header styles */
 		header {
 			background-color: #333;
-			color: #fff;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
+			height: 60px;
 			padding: 10px;
 		}
-
-		.header-link {
+		
+		header a {
 			display: inline-block;
-			color: #fff;
+			color: white;
+			text-align: center;
+			width: 25%;
 			text-decoration: none;
-			margin-right: 20px;
-			padding: 10px;
-			border-radius: 5px;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 40px;
+			border-right: 1px solid white;
+			box-sizing: border-box;
+			transition: background-color 0.3s ease;
+		}
+		
+		header a:last-child {
+			border-right: none;
+		}
+		
+		header a:hover {
 			background-color: #555;
 		}
-
-		/* Image and content styles */
-		.main-image {
-			width: 100%;
-			max-width: 800px;
-			display: block;
-			margin: 0 auto;
-		}
-
-		.main-content {
-			max-width: 800px;
-			margin: 0 auto;
-			padding: 20px;
-		}
-
 	</style>
 </head>
 <body>
 	<header>
-		<div>
-			<a href="#" class="header-link">Link 1</a>
-			<a href="#" class="header-link">Link 2</a>
-			<a href="#" class="header-link">Link 3</a>
-			<a href="#" class="header-link">Link 4</a>
-		</div>
+		<a href="#">Home</a>
+		<a href="#">About</a>
+		<a href="#">Services</a>
+		<a href="#">Contact</a>
 	</header>
-
+	
 	<main>
-		<img src="ecommerce.jpg" alt="My Image" class="main-image">
-		<div class="main-content">
-			<p>ProductRec</p>
-		</div>
+		<img src="ecommerce.jpg" alt="My Image">
+		<p>This is the main content of the page.</p>
 	</main>
+	
+	<footer>
+		<p>This is the footer of the page.</p>
+	</footer>
 </body>
 </html>
+
 
 
